@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Text Length Dashboard</title>
+<style>
+  body{
+    margin:0; min-height:100vh; background:#f4f1ea; color:#1b1b1b;
+    font-family: Georgia, 'Times New Roman', serif;
+    padding: 32px 16px; display:flex; justify-content:center;
+  }
+  .card{
+    width:100%; max-width:560px; background:#fff; border:1px solid #d9d3c4;
+    border-radius:10px; padding:28px 26px;
+  }
+  h1{font-size:1.4rem; margin:0 0 6px;}
+  p.sub{margin:0 0 22px; opacity:.7; font-size:.95rem;}
+  textarea{
+    width:100%; min-height:100px; padding:12px; font-family:inherit; font-size:1rem;
+    border:1px solid #d9d3c4; border-radius:6px; resize:vertical; box-sizing:border-box;
+  }
+  button{
+    margin-top:14px; padding:10px 20px; font-size:1rem; font-family:inherit;
+    background:#2f5d50; color:#fff; border:none; border-radius:6px; cursor:pointer;
+  }
+  #result{margin-top:20px; font-size:1rem; line-height:1.6;}
+  #result strong{color:#2f5d50;}
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Text Length Checker</h1>
+    <p class="sub">Type anything below and click Check.</p >
+
+    <textarea id="textInput" placeholder="Enter text here..."></textarea>
+    <br>
+    <button id="checkBtn" onclick="checkText()">Check</button>
+
+    <div id="result"></div>
+  </div>
+
+<script>
+  // Step 1: a normal named function instead of an arrow function.
+  // Called directly from the button's onclick attribute above.
+  function checkText() {
+
+    // Step 2: get the text box and read what's inside it
+    var textInput = document.getElementById("textInput");
+    var enteredText = textInput.value;
+
+    // Step 3: remove extra spaces from start and end
+    var trimmedText = enteredText.trim();
+
+    // Step 4: check if nothing was typed (Condition 3)
+    if (trimmedText.length === 0) {
+      alert("Please enter some text before checking.");
+      document.getElementById("result").innerHTML = "";
+      return;
+    }
+
+    // Step 5: split the text into words using a simple space split
+    var wordArray = trimmedText.split(/\s+/);
+
+    // Step 6: remove any empty items caused by extra spaces (basic loop, no regex)
+    var cleanWords = [];
+    for (var i = 0; i < wordArray.length; i++) {
+      if (wordArray[i] !== "") {
+        cleanWords.push(wordArray[i]);
+      }
+    }
+
+    // Step 7: decide what to show
+    var resultBox = document.getElementById("result");
+
+    if (cleanWords.length === 1) {
+      // Condition 1: single word -> show its length
+      var singleWord = cleanWords[0];
+      resultBox.innerHTML = "Single word detected.<br>Length: <strong>" + singleWord.length + "</strong> characters";
+    } else {
+      // Condition 2: multiple words -> show total length
+      resultBox.innerHTML =
+        "Full text detected (" + cleanWords.length + " words).<br>" +
+        "Total length: <strong>" + trimmedText.length + "</strong> characters";
+    }
+  }
+</script>
+</body>
+</html>
