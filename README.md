@@ -2,11 +2,10 @@
 About the Project: (Info)
 Simplify, Text Length Checker is a simple web application built using HTML, CSS, and JavaScript. It allows users to enter text and check the number of characters. It can also detect whether the user entered a single word or multiple words. This project is designed for basic JavaScript functions, conditions, loops, and HTML elements
 
-	Features:
-	Simple and user-friendly design.
-	Enter any text in the text box.
-	Detects single words and multiple words.
-	Shows the character length of a single word.
+	Features:
+	Simple and user-friendly design.
+	Enter any text in the text box.
+	Shows the character length of a single word.
 	Shows the total character length and word count for multiple words.
 	Displays an alert when the text box is empty.
 	Works directly in a web browser.
