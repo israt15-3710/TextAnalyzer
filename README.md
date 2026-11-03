@@ -28,7 +28,6 @@ Condition 2: If there are multiple words, it displays the total character length
 word count.
 Condition 3: If the text box is empty, it displays an alert message.
 Step 6: The result appears below the button.
-❖Expected Output:
 ❖Example of output:
 Example 1: Single Word
 Input: Hello
@@ -42,3 +41,24 @@ Full text detected (2 words).
 Total length: 11 characters.
 Example 3: Multiple Words (2)
 Input: Hello World
+Output:
+Full text detected (2 words).
+Total length: 12 characters.
+Example 4: Empty Input
+Input: Nothing entered.
+Output:
+Alert: "Please enter some text before checking."
+❖JavaScript Concepts Used:
+Function: check Text() runs when the button is clicked.
+Variables: Store the user's input and results.
+trim(): Removes spaces from the start and end.
+split(): Separates text into words.
+for loop: Checks the words in an array.
+if-else: Handles different input conditions.
+length Counts: characters or array elements.
+Inner HTML: Displays the result on the webpage.
+alert(): Shows a warning when no text is entered.
+❖Conclusion:
+Text Length Checker is a small beginner-level JavaScript project that demonstrates 
+text processing, conditional statements, loops, functions, and DOM (Document 
+Object Model) manipulation.
